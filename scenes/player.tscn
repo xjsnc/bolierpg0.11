@@ -1,7 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://csg7fvh5kv2n0"]
+[gd_scene load_steps=20 format=3 uid="uid://csg7fvh5kv2n0"]
 
 [ext_resource type="Texture2D" uid="uid://bp3q0mibo0fik" path="res://art/bolie-default.png" id="1_81h4j"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jcuxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2muj3"]
+atlas = ExtResource("1_81h4j")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_352tf"]
 atlas = ExtResource("1_81h4j")
@@ -14,6 +18,14 @@ region = Rect2(192, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_66cqm"]
 atlas = ExtResource("1_81h4j")
 region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8l5j"]
+atlas = ExtResource("1_81h4j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogyb6"]
+atlas = ExtResource("1_81h4j")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_601cy"]
 atlas = ExtResource("1_81h4j")
@@ -30,6 +42,10 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjn4l"]
 atlas = ExtResource("1_81h4j")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71dch"]
+atlas = ExtResource("1_81h4j")
+region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yi4c4"]
 atlas = ExtResource("1_81h4j")
@@ -51,6 +67,14 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2muj3")
+}],
+"loop": true,
+"name": &"back_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_352tf")
 }, {
 "duration": 1.0,
@@ -62,6 +86,17 @@ animations = [{
 "loop": true,
 "name": &"back_walk",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8l5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogyb6")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,6 +114,14 @@ animations = [{
 "loop": true,
 "name": &"front_walk",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71dch")
+}],
+"loop": true,
+"name": &"side_idle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -109,7 +152,9 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_r1o0m")
-animation = &"side_walk"
+animation = &"front_idle"
+frame = 1
+frame_progress = 0.311219
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

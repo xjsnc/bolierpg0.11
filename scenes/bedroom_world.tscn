@@ -1,11 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ehhda2v2nmg"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ehhda2v2nmg"]
 
+[ext_resource type="Script" path="res://scenes/bedroom_world.gd" id="1_hgnfi"]
 [ext_resource type="PackedScene" uid="uid://cp4y6mnx6xh1i" path="res://scenes/bedroom.tscn" id="1_srjup"]
 [ext_resource type="PackedScene" uid="uid://csg7fvh5kv2n0" path="res://scenes/player.tscn" id="2_17onb"]
+[ext_resource type="Texture2D" uid="uid://dyu4henb7asyh" path="res://art/pause_screen_frame_1.png" id="4_y4na2"]
+[ext_resource type="Texture2D" uid="uid://mrvvftyrv3a1" path="res://art/pause_screen_frame_2.png" id="5_kkx1v"]
+[ext_resource type="Texture2D" uid="uid://bk3r50xg8paca" path="res://art/pause_screen_frame_3.png" id="6_nwsp8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wnrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y4na2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kkx1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nwsp8")
+}],
+"loop": true,
+"name": &"default_pause",
+"speed": 5.0
+}]
 
 [node name="bedroom_world" type="Node2D"]
+script = ExtResource("1_hgnfi")
 
 [node name="bedroom" parent="." instance=ExtResource("1_srjup")]
 
 [node name="player" parent="bedroom" instance=ExtResource("2_17onb")]
 position = Vector2(105, 103)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(199.75, 136.5)
+scale = Vector2(0.438151, 0.313802)
+sprite_frames = SubResource("SpriteFrames_2wnrx")
+animation = &"default_pause"

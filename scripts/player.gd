@@ -4,41 +4,41 @@ const speed = 100
 var current_dir = "down"
 var start_idle = "first"
 var idk = 0
+var screen_size
+
+func _ready():
+	var screen_size = get_viewport_rect().size
+	get_node("CollisionShape2D").disabled = false
 
 func _start():
 	play_anim(0)
 #play front idle
 
 func _physics_process(delta):
-	player_movement(delta)
-	
-func player_movement(delta):
+	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
+		velocity.x += speed
 	elif Input.is_action_pressed("ui_left"):
 		current_dir = "left"
 		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
+		velocity.x -= speed
 	elif Input.is_action_pressed("ui_down"):
 		current_dir = "down"
 		play_anim(1)
-		velocity.x = 0
-		velocity.y = speed
+		velocity.y += speed
 	elif Input.is_action_pressed("ui_up"):
 		current_dir = "up"
 		play_anim(1)
-		velocity.x = 0
-		velocity.y = -speed
+		velocity.y -= speed
 	else: 
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
 		
 	move_and_slide()
+	position += velocity * delta
 
 func play_anim(movement):
 	var dir = current_dir

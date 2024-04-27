@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ehhda2v2nmg"]
+
+[ext_resource type="PackedScene" uid="uid://cp4y6mnx6xh1i" path="res://scenes/bedroom.tscn" id="1_srjup"]
+[ext_resource type="PackedScene" uid="uid://csg7fvh5kv2n0" path="res://scenes/player.tscn" id="2_17onb"]
+
+[node name="bedroom_world" type="Node2D"]
+
+[node name="bedroom" parent="." instance=ExtResource("1_srjup")]
+
+[node name="player" parent="bedroom" instance=ExtResource("2_17onb")]
+position = Vector2(105, 103)

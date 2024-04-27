@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clneo62wopr42"
-path="res://.godot/imported/bolie-default.png-ea8d3e4a0382d51d7dca694b38553ff9.ctex"
+uid="uid://wo75xyqttt4h"
+path="res://.godot/imported/tileset.png-9a7aa93aa20d6fc1a677061e224b6b5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bolie-default.png"
-dest_files=["res://.godot/imported/bolie-default.png-ea8d3e4a0382d51d7dca694b38553ff9.ctex"]
+source_file="res://art/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-9a7aa93aa20d6fc1a677061e224b6b5b.ctex"]
 
 [params]
 

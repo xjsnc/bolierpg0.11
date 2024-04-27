@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 const speed = 100
-var current_dir = "none"
+var current_dir = "down"
+var start_idle = "first"
+var idk = 0
 
 func _start():
-	$AnimatedSprite2D.play("front_idle")
+	play_anim(0)
 #play front idle
 
 func _physics_process(delta):
@@ -41,6 +43,7 @@ func player_movement(delta):
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
+	anim.speed_scale = 1
 	
 	if dir == "right":
 		anim.flip_h = false
@@ -57,19 +60,27 @@ func play_anim(movement):
 	elif dir == "down":
 		anim.flip_h = true
 		if movement == 0:
-			anim.play("front_idle")
+			anim.play("front_idle_1")
+			if anim.frame == 7:
+				if anim.frame_progress >= 0.50:
+					anim.frame=6
+				anim.speed_scale = 0.5
+			else:
+				anim.speed_scale = 1
 		elif movement == 1:
 			anim.play("front_walk")
 	elif dir == "up":
 		anim.flip_h = true
 		if movement == 0:
-			anim.play("back_idle")
+			anim.play("back_idle_1")
+			if anim.frame == 5:
+				if anim.frame_progress >= 0.50:
+					anim.frame=4
+				anim.speed_scale = 0.5
+			else:
+				anim.speed_scale = 1
 		elif movement == 1:
 			anim.play("back_walk")
-	
-		
-#if movement = 0: play idle
-#elif movement = 1: play walk
-#put movement into function para later
-	
 
+func first_part(anim):
+	anim.play("front_idle_1")

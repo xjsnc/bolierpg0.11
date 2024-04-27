@@ -1,3 +1,4 @@
 res://scenes/bedroom.tscn
 res://scenes/player.tscn
 res://scripts/player.gd
+res://scenes/bedroom_world.tscn

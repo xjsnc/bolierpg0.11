@@ -1,20 +1,25 @@
 extends CharacterBody2D
 
-const speed = 100
+var speed = 100
 var current_dir = "down"
 var start_idle = "first"
 var idk = 0
 var screen_size
 
 func _ready():
-	var screen_size = get_viewport_rect().size
 	get_node("CollisionShape2D").disabled = false
+	$Camera2D/PauseScreen.hide()
+
+func _pause():
+	$Camera2D/PauseScreen.show()
+	get_tree().paused = true
 
 func _start():
 	play_anim(0)
 #play front idle
 
 func _physics_process(delta):
+	var screen_size = "pass"
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
@@ -37,6 +42,9 @@ func _physics_process(delta):
 		velocity.x = 0
 		velocity.y = 0
 		
+	if Input.is_action_pressed("ui_cancel"):
+		_pause()
+	
 	move_and_slide()
 	position += velocity * delta
 
@@ -84,3 +92,11 @@ func play_anim(movement):
 
 func first_part(anim):
 	anim.play("front_idle_1")
+
+
+func _on_resume_button_pressed():
+	get_tree().paused = false
+	$Camera2D/PauseScreen.hide()
+
+func _on_quit_button_pressed():
+	get_tree().quit()

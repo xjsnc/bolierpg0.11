@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://06c8tmnutj4i"]
+
+[ext_resource type="Texture2D" uid="uid://crpt2e1f48ngu" path="res://art/greyed-out-pause-screen.png" id="1_wpode"]
+
+[node name="pause_screen" type="TextureRect"]
+offset_left = 54.0
+offset_top = -89.0
+offset_right = 1974.0
+offset_bottom = 991.0
+texture = ExtResource("1_wpode")
+expand_mode = 1

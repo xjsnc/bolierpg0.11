@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Bolie RPG 0.1"
-run/main_scene="res://scenes/bedroom_world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://art/icon.svg"
 
 [display]
 
+window/size/viewport_width=768
+window/size/viewport_height=512
 window/stretch/scale=4.0
 
 [gui]
